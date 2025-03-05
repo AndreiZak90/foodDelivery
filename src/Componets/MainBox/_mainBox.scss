@@ -1,0 +1,23 @@
+@use "../../scss/vars" as *;
+
+.order_field {
+  display: flex;
+}
+
+@media screen and (max-width: 1260px) {
+  .order_field {
+    position: relative;
+    padding-left: 64px;
+  }
+
+  .goodsField {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .order_field {
+    position: relative;
+    padding-left: 10px;
+  }
+}

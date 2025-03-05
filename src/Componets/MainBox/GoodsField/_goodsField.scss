@@ -1,0 +1,39 @@
+@use "../../../scss/vars" as *;
+
+.goodsField {
+  margin-left: 30px;
+}
+
+.goodsField_main_title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 120%;
+  margin-bottom: 36px;
+}
+
+.field_box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.field_box_net {
+  font-size: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .goodsField {
+    margin-left: 0;
+  }
+
+  .field_box_net {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .field_box {
+    justify-content: center;
+    gap: 10px;
+  }
+}

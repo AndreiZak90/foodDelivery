@@ -1,0 +1,99 @@
+@use "../../scss/vars" as *;
+
+.footer {
+  background: $white;
+}
+
+.footer_box {
+  padding: 51px 211px 40px 75px;
+}
+
+.footer_box_links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_logo_img {
+  width: 300px;
+  height: 58px;
+}
+
+.footer_links {
+  display: flex;
+}
+
+.links_fon {
+  margin-right: 126px;
+}
+
+.links_fon_link {
+  margin-top: 25.5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 130%;
+  img {
+    width: 18px;
+    margin-right: 4px;
+  }
+}
+
+.links_network_social {
+  margin-top: 22px;
+  display: flex;
+  gap: 16px;
+  svg:hover {
+    g {
+      path {
+        cursor: pointer;
+        fill: $yellow;
+      }
+    }
+  }
+}
+
+.signature {
+  margin-top: 54px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer_box {
+    padding: 32px;
+  }
+
+  .links_fon {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .footer_logo_img {
+    width: 200px;
+    height: 40px;
+  }
+
+  .footer_links {
+    margin-top: 36px;
+  }
+
+  .footer_box_links {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .footer_box {
+    padding: 24px 10px;
+  }
+
+  .footer_links {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

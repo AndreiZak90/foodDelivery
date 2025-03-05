@@ -1,0 +1,236 @@
+@use "../../../scss/vars" as *;
+
+.payment {
+  position: fixed;
+  z-index: 89;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: $black;
+    opacity: 0.8;
+  }
+}
+
+.payment_box {
+  opacity: 1;
+  z-index: 99;
+  width: 684px;
+  height: 432px;
+  border-radius: 24px;
+  background: $white;
+  position: relative;
+  left: calc(50% - 342px);
+  top: 150px;
+  display: flex;
+}
+
+.payment_box_img_block {
+  width: 50%;
+  height: 100%;
+  background: $yellow;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closed {
+  cursor: pointer;
+  color: $black;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.payment_box_information {
+  width: 50%;
+  padding: 0 24px;
+  position: relative;
+}
+
+.payment_box_title {
+  margin-top: 44px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.payment_box_input,
+.addition_adrees {
+  border: 1px solid rgb(242, 242, 243);
+  border-radius: 12px;
+  background: $allWhite;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 130%;
+  width: 100%;
+  margin-bottom: 8px;
+  color: $grey;
+  &:focus {
+    border: 1px solid $yellow;
+    color: $black;
+  }
+}
+
+.payment_box_inputs {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment_box_inputs_label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.payment_box_inputs_label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.payment_box_inputs_label input:checked ~ .chekbox_dots {
+  background-color: #eee;
+}
+.payment_box_inputs_label input:checked ~ .chekbox_dots:after {
+  transform: scale(1);
+}
+
+.payment_box_inputs_label:hover input ~ .chekbox_dots {
+  background-color: #eee;
+}
+.payment_box_inputs_label:hover input:checked ~ .chekbox_dots {
+  background-color: #eee;
+}
+.payment_box_inputs_label .chekbox_dots {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 12px;
+  width: 12px;
+  background-color: #eee;
+  transition: background-color 0.25s ease;
+  border-radius: 11px;
+}
+.payment_box_inputs_label .chekbox_dots:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
+  display: block;
+  background-color: $black;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.25s ease;
+}
+.payment_box_inputs_label .checkbox_text {
+  color: #333;
+  line-height: 1.4;
+  font-size: 16px;
+  transition: font-weight 0.25s ease;
+}
+
+.send {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 90%;
+  background: $orange;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  color: $white;
+  padding: 11px;
+  transform: color 0.25s ease;
+}
+
+.send:hover {
+  color: $black;
+}
+
+.send:active {
+  color: $black;
+  background: $yellow;
+}
+
+.addition_adrees {
+  margin-top: 16px;
+}
+
+.addition_adrees_mini {
+  display: flex;
+  gap: 8px;
+}
+
+.addition_adrees_mini_inp {
+  border: 1px solid rgb(242, 242, 243);
+  border-radius: 12px;
+  background: $allWhite;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 130%;
+  width: 100%;
+  margin-bottom: 8px;
+  color: $grey;
+  &:focus {
+    border: 1px solid $yellow;
+    color: $black;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .payment_box {
+    max-width: 90%;
+    left: 5%;
+  }
+
+  .payment_box_img_block {
+    display: none;
+  }
+
+  .payment_box_information {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .payment_box {
+    max-width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .payment_box_img_block {
+    display: none;
+  }
+
+  .payment_box_information {
+    width: 100%;
+  }
+}
