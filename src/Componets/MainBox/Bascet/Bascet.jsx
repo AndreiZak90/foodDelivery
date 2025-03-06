@@ -14,13 +14,16 @@ export default function Bascet() {
 
   const [count, setCount] = useState(bascetBox.length);
   const [activeModal, setActiveModal] = useState(false);
+  const [bascetMass, setBascetMass] = useState(bascetBox);
+  const [updateBas, setUpdateBas] = useState(true);
 
   useEffect(() => {
     setCount(bascetBox.length);
+    setBascetMass(bascetBox);
     if (bascetBox.length === 0) {
       dispatch(zeroTotalPrice(0));
     }
-  }, [bascetBox, dispatch]);
+  }, [bascetBox, dispatch, updateBas]);
 
   const basActive = () => {
     const bascet = document.querySelector(".box_bascet");
@@ -35,6 +38,10 @@ export default function Bascet() {
     setActiveModal(false);
   };
 
+  const update = () => {
+    setUpdateBas(!updateBas);
+  };
+
   return (
     <>
       <div className="box_bascet">
@@ -46,8 +53,8 @@ export default function Bascet() {
           {count != 0 && (
             <div className="box_order">
               <div className="bascet_box">
-                {bascetBox.map((item, idx) => (
-                  <ItemBascet key={idx} state={item} />
+                {bascetMass.map((item, idx) => (
+                  <ItemBascet key={idx} state={item} newBas={update} />
                 ))}
               </div>
               <div className="bascet_total_box">

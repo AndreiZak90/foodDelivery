@@ -30,7 +30,12 @@ const arrayGoods = createSlice({
       state.bascetBox.push(action.payload);
     },
     delBascetItem(state, action) {
-      state.bascetBox.filter((item) => item !== action.payload);
+      console.log(action.payload);
+      state.bascetBox = state.bascetBox.filter(
+        (item) => item.name !== action.payload
+      );
+
+      console.log(state.bascetBox);
     },
     addTotalPrice(state, action) {
       state.totalPrice += action.payload;

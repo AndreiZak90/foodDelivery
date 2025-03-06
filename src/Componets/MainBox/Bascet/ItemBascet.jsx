@@ -8,7 +8,7 @@ import {
   minusTotalPrice,
 } from "../../../Redux/slices/productSlice";
 
-export default function ItemBascet(state) {
+export default function ItemBascet(state, { newBas }) {
   const item = state.state;
 
   const [count, setCount] = useState(1);
@@ -21,10 +21,10 @@ export default function ItemBascet(state) {
     setCount(count - 1);
     dispatch(minusTotalPrice(item.price));
   };
-
   if (count < 1) {
+    dispatch(delBascetItem(item.name));
+    newBas;
     setCount(1);
-    dispatch(delBascetItem(item));
   }
 
   return (
